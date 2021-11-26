@@ -1,8 +1,11 @@
 const nav = document.querySelector('.nav > ul')
 const li = document.querySelectorAll('.nav > ul li')
 const main = document.querySelector('main')
+const descLength = document.querySelector('.descLength')
+const textInput = document.querySelector('.description')
 
 nav.addEventListener('click', showContents)
+textInput.addEventListener('keyup', setDescLength)
 
 
 function showContents(e) {
@@ -18,4 +21,9 @@ function showContents(e) {
         main.className = ""
         main.classList.add(className)
     }
+}
+
+function setDescLength(e) {
+    let length = (e.target.value.length) - 1 
+    descLength.textContent = `${length}/20`
 }
