@@ -24,6 +24,6 @@ function showContents(e) {
 }
 
 function setDescLength(e) {
-    let length = (e.target.value.length) - 1 
+    let length = e.target.value.length
     descLength.textContent = `${length}/20`
 }
