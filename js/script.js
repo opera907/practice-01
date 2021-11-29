@@ -29,11 +29,22 @@ function setDescLength(e) {
 }
 
 function init() {
-    // #1 data.js의 my_info데이터의 정보를 넣어줌
+    showMyInfo()
+}
+
+function showMyInfo(){
+        // #1 data.js의 my_info데이터의 정보를 넣어줌
     document.querySelector('#myInfoId').textContent = my_info.id
     document.querySelector('#myInfoUserName').textContent = my_info.user_name
     document.querySelector('#sp-intro').textContent = my_info.introduction
-    document.querySelector(`input[type = radio][value=${my_info.as}]`).checked = true
+    document.querySelector('#ip-intro').value = my_info.introduction
+    console.dir(document.querySelector(`#myinfo input[type = radio][value=${my_info.as}]`))
+    document.querySelector(`#myinfo input[type = radio][value=${my_info.as}]`).checked = true
+    //#1-1 취소버튼 누를 때, 눌려있는 chk정보를 리셋
+    document.querySelectorAll(`input[type=checkbox]`).forEach(chk => {
+        chk.checked = false
+    })
+    //#1-2 무조건 my_info의 데이터를 참고해서 값을 체크해줌
     my_info.interest.forEach(interest => {
         document.querySelector(`input[type=checkbox][value=${interest}]`).checked = true
     })
