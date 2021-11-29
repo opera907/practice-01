@@ -10,11 +10,11 @@ textInput.addEventListener('keyup', setDescLength)
 
 function showContents(e) {
     const target = e.target
-    if(target.nodeName == "LI") {
+    if (target.nodeName == "LI") {
         //move li on class
         li.forEach(ele => {
             ele.classList.remove('on')
-            if(ele === target) ele.classList.add('on')
+            if (ele === target) ele.classList.add('on')
         })
         //show contents
         const className = target.classList[0]
@@ -32,8 +32,8 @@ function init() {
     showMyInfo()
 }
 
-function showMyInfo(){
-        // #1 data.js의 my_info데이터의 정보를 넣어줌
+function showMyInfo() {
+    // #1 data.js의 my_info데이터의 정보를 넣어줌
     document.querySelector('#myInfoId').textContent = my_info.id
     document.querySelector('#myInfoUserName').textContent = my_info.user_name
     document.querySelector('#sp-intro').textContent = my_info.introduction
@@ -52,7 +52,7 @@ function showMyInfo(){
 
 //내 정보 
 //수정버튼 클릭 시
-function setEditMyInfo(on){
+function setEditMyInfo(on) {
     document.querySelector('#myinfo > div').className = on ? 'edit' : 'non-edit'
     //라디오랑 체크박스 disable없애기
     document.querySelectorAll('#myinfo input').forEach(input => {
@@ -61,14 +61,12 @@ function setEditMyInfo(on){
     showMyInfo()
 }
 
-function updateMyInfo(){
-
+function updateMyInfo() {
     //확인 누르면, input에 입력된 val를 다시 삽입해줌.
     my_info.introduction = document.querySelector('#ip-intro').value
-    my_info.as = document.querySelector(`input[type = radio]:checked`).value 
+    my_info.as = document.querySelector(`input[type = radio]:checked`).value
     const interests = []
     document.querySelectorAll(`#myinfo input[type=checkbox]:checked`).forEach(chk => {
-        //console.log(chk.checked)
         interests.push(chk.value)
     })
     my_info.interest = interests
