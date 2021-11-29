@@ -18,12 +18,23 @@ function showContents(e) {
         })
         //show contents
         const className = target.classList[0]
-        main.className = ""
-        main.classList.add(className)
+        main.className = className
+        //main.classList.add(className)
     }
 }
 
 function setDescLength(e) {
     let length = e.target.value.length
     descLength.textContent = `${length}/20`
+}
+
+function init() {
+    // #1 data.js의 my_info데이터의 정보를 넣어줌
+    document.querySelector('#myInfoId').textContent = my_info.id
+    document.querySelector('#myInfoUserName').textContent = my_info.user_name
+    document.querySelector('#sp-intro').textContent = my_info.introduction
+    document.querySelector(`input[type = radio][value=${my_info.as}]`).checked = true
+    my_info.interest.forEach(interest => {
+        document.querySelector(`input[type=checkbox][value=${interest}]`).checked = true
+    })
 }
