@@ -49,3 +49,14 @@ function showMyInfo(){
         document.querySelector(`input[type=checkbox][value=${interest}]`).checked = true
     })
 }
+
+//내 정보 
+//수정버튼 클릭 시
+function setEditMyInfo(on){
+    document.querySelector('#myinfo > div').className = on ? 'edit' : 'non-edit'
+    //라디오랑 체크박스 disable없애기
+    document.querySelectorAll('#myinfo input').forEach(input => {
+        input.disabled = !on
+    })
+    showMyInfo()
+}
