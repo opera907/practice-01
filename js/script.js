@@ -60,3 +60,18 @@ function setEditMyInfo(on){
     })
     showMyInfo()
 }
+
+function updateMyInfo(){
+
+    //확인 누르면, input에 입력된 val를 다시 삽입해줌.
+    my_info.introduction = document.querySelector('#ip-intro').value
+    my_info.as = document.querySelector(`input[type = radio]:checked`).value 
+    const interests = []
+    document.querySelectorAll(`#myinfo input[type=checkbox]:checked`).forEach(chk => {
+        //console.log(chk.checked)
+        interests.push(chk.value)
+    })
+    my_info.interest = interests
+    setEditMyInfo(false)
+    showMyInfo()
+}
